@@ -1,21 +1,25 @@
 package com.Tuyao.week2.Homework;
 
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(name = "HelloWorldServlet", value = "/HelloWorldServlet")
 public class HelloWorldServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter writer = response.getWriter();
+        writer.println("Name:Wu Kun\n" +
+                "ID:2021211001000915\n" +
+                "Date and Time Tue Mar 7 18:50 CST 2023");
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        PrintWriter writer=response.getWriter();
-        writer.println("Hello,Client!");
     }
-    public void doPost(HttpServletRequest request, HttpServletResponse response){
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }
